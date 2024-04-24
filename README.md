@@ -1,50 +1,50 @@
 [English](README.md) | [中文版](README_zh.md)
 
-[![license: Apache 2](https://img.shields.io/badge/license-Apache%202-green)](https://github.com/tuya/tuya-connector/blob/master/LICENSE 'License')
+[![license: Apache 2](https://img.shields.io/badge/license-Apache%202-green)](https://github.com/tuya/smart-wc/blob/main/LICENSE 'License')
 
-`smart-wc` 提供了厕所可用坑位的实时查询功能，便于用户快速找到可用的厕所坑位，是一个极简的智能厕所服务解决方案，移动端优先，支持多设备品类，配置灵活。  
-![GIF 演示](./public/demo.gif)
+`smart-wc` provides a real-time query function for available toilet stalls, allowing users to quickly find available toilet stalls. It is a minimalist smart toilet service solution, mobile-first, supports multiple device categories, and has flexible configuration.  
+![GIF demo](./public/demo-en.gif)
 
-## 一键快速体验
-1、前置条件：确保已安装 [Node.js](https://nodejs.org/) 和 [Git](https://git-scm.com/)，其中 Node.js 版本 >= 18.0.0。  
-2、一键快速体验是通过 mock 的方式启动项目，不需要连接和配置真实设备，可以快速体验页面功能。
+## One-click quick experience
+1. Prerequisites: Make sure [Node.js](https://nodejs.org/) and [Git](https://git-scm.com/) are installed, where Node.js version >= 18.0.0.
+2. The one-click quick experience starts the project in a mock mode, no need to connect and configure real devices, you can quickly experience the page function.
 
 ### Mac/Linux
 ```bash
-curl -s https://raw.githubusercontent.com/A-I-O-T/smart-wc/main/quickstart.sh | bash
+curl -s https://raw.githubusercontent.com/tuya/smart-wc/main/quickstart.sh | bash
 ```
 
 ### Windows
 ```bash
-curl -fsSL https://raw.githubusercontent.com/A-I-O-T/smart-wc/main/quickstart.sh | bash
+curl -fsSL https://raw.githubusercontent.com/tuya/smart-wc/main/quickstart.sh | bash
 ```
 
-## 配置说明
-配置文件：`config.json`，位于项目根目录下，各字段说明如下：
+## Configuration
+Configuration file: `config.json`, located in the project root directory, each field is explained as follows:
 ```json
 {
-  "access_key": "Tuya 云项目 Access ID", 
-  "secret_key": "Tuya 云项目 Access Secret",
-  "region": "数据中心，非必填，默认中国区，支持：CN-中国、US-美西、UEAZ-美东、EU-欧洲、WEAZ-西欧、IND-印度",
+  "access_key": "Tuya Cloud Project Access ID", 
+  "secret_key": "Tuya Cloud Project Access Secret",
+  "region": "Data center, not required, default China region, support: CN-China, US-West, UEAZ-East US, EU-Europe, WEAZ-West Europe, IND-India",
 
-  // 策略配置，支持多种策略，比如有些坑位是通过门磁开关判断，有些是通过红外传感器判断，有些是通过人体存在传感器判断
+  // Strategy configuration, supports multiple strategies, such as some stalls are judged by door magnetic switches, some are judged by infrared sensors, and some are judged by human presence sensors
   "strategy": [
-    {"category": "品类", "code": "功能点，可以用来判断有人/无人", "value": "表示无人时候的状态值，表明当前坑位空闲"}
+    {"category": "Category", "code": "Function point, can be used to judge whether there are people/no people", "value": "Represents the status value when there are no people, indicating that the current stall is free"}
   ],
 
-  // 厕所建筑配置，按照楼层配置，每层楼可以配置多个厕所，每个厕所可以配置多个坑位
+  // Toilet building configuration, configured by floor, each floor can configure multiple toilets, each toilet can configure multiple stalls
   "building": {
-    "name": "建筑名称",
+    "name": "Building name",
     "wc":[
       {
-        "floor": "楼层",
+        "floor": "Floor",
         "list": [
           {
-            "gender": "性别：男/女",
+            "gender": "Gender: male/female",
             "devices": [
-              "设备 Id，一般一个坑位安装一个设备，用于判断坑位有人/无人"
+              "Device Id, generally one stall installs one device, used to judge whether there are people/no people in the stall"
             ],
-            "location": "厕所位置描述，如：东侧"
+            "location": "Toilet location description, such as: east side"
           }
         ]
       }
@@ -53,39 +53,39 @@ curl -fsSL https://raw.githubusercontent.com/A-I-O-T/smart-wc/main/quickstart.sh
 }
 ```  
 
-### 配置示例
+### Configuration example
 ```json
 {
   "access_key": "steh*******h4d",
   "secret_key": "fdcdfa***********080665",
 
   "strategy": [
-    {"category": "mcs", "code": "doorcontact_state", "value": true}, // 门磁设备
-    {"category": "hps", "code": "presence_state", "value": "none"}   // 人体存在传感器设备
+    {"category": "mcs", "code": "doorcontact_state", "value": true}, // Door magnetic device
+    {"category": "hps", "code": "presence_state", "value": "none"}   // Human presence sensor device
   ],
 
   "building": {
-    "name": "XXX 大厦",
+    "name": "XXX Building",
     "wc":[
       {
         "floor": "1F",
         "list": [
           {
-            "gender": "男",
+            "gender": "Male",
             "devices": [
               "6c196********ewry7",
               "6cb23********fn72r"
             ],
-            "location": "东"
+            "location": "East"
           },
           {
-            "gender": "女",
+            "gender": "Female",
             "devices": [
               "6cffe********ddlsoo",
               "6c16a********69gecp",
               "6c7c0*******6e5fhn"
             ],
-            "location": "西"
+            "location": "West"
           }
         ]
       },
@@ -93,21 +93,21 @@ curl -fsSL https://raw.githubusercontent.com/A-I-O-T/smart-wc/main/quickstart.sh
         "floor": "2F",
         "list": [
           {
-            "gender": "男",
+            "gender": "Male",
             "devices": [
               "6c1588*******3akat8",
               "6c61d1*******47387q"
             ],
-            "location": "东"
+            "location": "East"
           },
           {
-            "gender": "女",
+            "gender": "Female",
             "devices": [
               "6c590c*******6aereu",
               "6c549b*******86p0eh",
               "6c3629*******b5e3m6"
             ],
-            "location": "西"
+            "location": "West"
           }
         ]
       }
