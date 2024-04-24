@@ -14,11 +14,6 @@
 curl -s https://raw.githubusercontent.com/tuya/smart-wc/main/quickstart.sh | bash
 ```
 
-### Windows
-```bash
-curl -fsSL https://raw.githubusercontent.com/tuya/smart-wc/main/quickstart.sh | bash
-```
-
 ## 配置说明
 配置文件：`config.json`，位于项目根目录下，各字段说明如下：
 ```json

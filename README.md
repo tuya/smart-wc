@@ -14,11 +14,6 @@
 curl -s https://raw.githubusercontent.com/tuya/smart-wc/main/quickstart.sh | bash
 ```
 
-### Windows
-```bash
-curl -fsSL https://raw.githubusercontent.com/tuya/smart-wc/main/quickstart.sh | bash
-```
-
 ## Configuration
 Configuration file: `config.json`, located in the project root directory, each field is explained as follows:
 ```json
