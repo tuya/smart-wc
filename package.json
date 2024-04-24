@@ -1,0 +1,19 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "mock=$npm_config_mock nuxt dev --open",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@tuya/tuya-connector-nodejs": "^2.1.2",
+    "nuxt": "^3.11.2",
+    "vant": "^4.8.11",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  }
+}
